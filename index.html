@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMEN-GOGS: Global Online Tutorials and Research</title>
+    <style>
+        /* Basic styling for full-screen responsive layout */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff; /* White background for the body */
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            position: relative; /* Allow absolute positioning for lights */
+        }
+
+        h1 {
+            text-align: center;
+            color: #000; /* Dark black text */
+        }
+
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .button {
+            padding: 15px 30px;
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+            transition: transform 0.3s;
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+            50% { box-shadow: 0 0 30px rgba(0, 0, 0, 0.2); }
+        }
+
+        .images {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .images img {
+            width: 150px;
+            height: 200px;
+            object-fit: cover;
+            border: 5px solid #ddd;
+        }
+
+        .content {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            text-align: center;
+            border: 10px solid transparent;
+            border-image: linear-gradient(to right, red, yellow, green) 1;
+            animation: glowingBorder 2s infinite;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes glowingBorder {
+            0%, 100% { border-image-source: linear-gradient(to right, red, yellow, green); }
+            50% { border-image-source: linear-gradient(to right, yellow, green, red); }
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        .contact-info a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
+    <script>
+        function handleGetMoreClick() {
+            // Open YouTube subscription link
+            const youtubeWindow = window.open('https://www.youtube.com/channel/UCLBivSEh30F44ptAAgEVRUA?sub_confirmation=1', '_blank');
+            
+            // Check when YouTube window is closed before redirecting to Telegram
+            const checkWindowClosed = setInterval(() => {
+                if (youtubeWindow.closed) {
+                    clearInterval(checkWindowClosed);
+                    window.location.href = 'https://t.me/GOGSmore'; // Redirect to Telegram
+                }
+            }, 1000); // Check every 1 second
+        }
+    </script>
+</head>
+<body>
+
+    <div class="content">
+        <h1>AMEN-GOGS</h1>
+
+        <div class="button-container">
+            <button class="button" onclick="handleGetMoreClick()">Get More...</button>
+        </div>
+
+        <div class="images">
+            <img src="https://th.bing.com/th/id/OIP.nAElYAqNOlaPVRmxueDC8AHaHo?&rs=1&pid=ImgDetMain" alt="Image 1">
+            <img src="https://th.bing.com/th/id/OIP.qA7USEx-ziGS6RKlQKC8lgHaNK?&rs=1&pid=ImgDetMain" alt="Image 2">
+        </div>
+
+        <div class="contact-info">
+            <p>
+                <a href="tel:+251918203416">📞 +251918203416</a>
+                <a href="mailto:assefacn@gmail.com">📧 assefacn@gmail.com</a>
+            </p>
+        </div>
+
+        <!-- Bonus prompt -->
+        <div id="bonusPrompt" style="display: none; margin-top: 20px; color: #000;">
+            <h2>Click below to get your bonus!</h2>
+            <button class="button" onclick="redirectToTelegram()">Get Bonus</button>
+        </div>
+    </div>
+
+</body>
+</html>
